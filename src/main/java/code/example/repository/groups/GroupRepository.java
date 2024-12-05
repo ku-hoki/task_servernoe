@@ -23,6 +23,7 @@ public class GroupRepository implements IGroupRepository {
         group.setId(id);
         dataBase.getGroups().put(id, group);
         return id;
+
     }
 
     @Override
