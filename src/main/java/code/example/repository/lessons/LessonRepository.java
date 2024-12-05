@@ -1,10 +1,12 @@
 package code.example.repository.lessons;
 
 import code.example.entities.LessonEntity;
+import code.example.exceptions.RepositoryException;
 import code.example.repository.DataBase;
 import code.example.repository.lessons.ILessonRepository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class LessonRepository implements ILessonRepository {
@@ -29,14 +31,16 @@ public class LessonRepository implements ILessonRepository {
     }
 
     @Override
-    public List<LessonEntity> getLessonByTeacherAndRangeDate(long teacherId, LocalDate startDate, LocalDate endDate) {
-        return null;
-       // return dataBase.getLessons().values().stream().filter()
+    public List<LessonEntity> getLessonByTeacherAndRangeDate(long teacherId, LocalDateTime startDate, LocalDateTime endDate) throws RepositoryException{
+        return dataBase.getLessons().values().stream().filter(lessonEntity -> lessonEntity.getIdTeacher() == teacherId
+                && lessonEntity.getLessonData().isAfter(startDate) && lessonEntity.getLessonData().isBefore(endDate)).toList();
     }
 
     @Override
-    public List<LessonEntity> getLessonByGroupAndRangeDate(long groupId, LocalDate startDate, LocalDate endDate) {
-        return null;
+    public List<LessonEntity> getLessonByGroupAndRangeDate(long groupId, LocalDateTime startDate, LocalDateTime endDate) throws RepositoryException {
+        return dataBase.getLessons().values().stream().filter(lessonEntity -> lessonEntity.getIdGroup() == groupId
+                && lessonEntity.getLessonData().isAfter(startDate) && lessonEntity.getLessonData().isBefore(endDate)).toList();
+
     }
 
     @Override

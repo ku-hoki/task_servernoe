@@ -15,17 +15,17 @@ public class StudentRepository implements IStudentRepository {
     }
 
     @Override
-    public List<StudentEntity> getStudentsByGroup(long groupId) {
+    public List<StudentEntity> getStudentsByGroup(long groupId) throws RepositoryException{
         return dataBase.getStudents().values().stream().filter(studentEntity -> studentEntity.getIdGroup() == groupId).toList();
     }
 
     @Override
-    public StudentEntity getStudentById(long studentId)  {
+    public StudentEntity getStudentById(long studentId) throws RepositoryException  {
         return dataBase.getStudents().get(studentId);
     }
 
     @Override
-    public long addStudent(StudentEntity student) {
+    public long addStudent(StudentEntity student) throws RepositoryException {
         long id = dataBase.generateNextIdStudent();
         student.setId(id);
         dataBase.getStudents().put(id, student);
@@ -40,7 +40,7 @@ public class StudentRepository implements IStudentRepository {
     }
 
     @Override
-    public void deleteStudent(long studentId) {
+    public void deleteStudent(long studentId) throws RepositoryException {
         dataBase.getStudents().remove(studentId);
     }
 }

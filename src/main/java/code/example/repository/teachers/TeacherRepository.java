@@ -15,17 +15,17 @@ public class TeacherRepository implements ITeacherRepository {
     }
 
     @Override
-    public List<TeacherEntity> getAllTeachers(long teacherId) {
+    public List<TeacherEntity> getAllTeachers(long teacherId) throws RepositoryException  {
         return dataBase.getTeachers().values().stream().filter(teacherEntity -> teacherEntity.getIdTeacher() == teacherId).toList();
     }
 
     @Override
-    public TeacherEntity getTeacherById(long teacherId) {
+    public TeacherEntity getTeacherById(long teacherId) throws RepositoryException  {
         return dataBase.getTeachers().get(teacherId);
     }
 
     @Override
-    public long addTeacher(TeacherEntity teacher) {
+    public long addTeacher(TeacherEntity teacher) throws RepositoryException  {
         long id = dataBase.generateNextIdTeacher();
         teacher.setIdTeacher(id);
         dataBase.getTeachers().put(id, teacher);
@@ -34,11 +34,15 @@ public class TeacherRepository implements ITeacherRepository {
 
     @Override
     public void editTeacher(TeacherEntity teacher) throws RepositoryException {
-
+        if (!dataBase.getTeachers().containsKey(teacher.getIdTeacher())){
+            throw new RepositoryException("Unable to edit teacher: teacher does not exist");
+        }
+        long idTeacher = teacher.getIdTeacher();
+        dataBase.getTeachers().put(idTeacher, teacher);
     }
 
     @Override
-    public void deleteTeacher(long teacherId) {
+    public void deleteTeacher(long teacherId) throws RepositoryException  {
         dataBase.getTeachers().remove(teacherId);
     }
 }

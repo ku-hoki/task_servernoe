@@ -4,12 +4,19 @@ import code.example.entities.GroupEntity;
 import code.example.exceptions.RepositoryException;
 import code.example.repository.DataBase;
 
+import java.util.List;
+
 public class GroupRepository implements IGroupRepository {
 
     private DataBase dataBase;
 
     public GroupRepository(DataBase dataBase) {
         this.dataBase = dataBase;
+    }
+
+    @Override
+    public List<GroupEntity> getStudentGroups() throws RepositoryException {
+        return dataBase.getGroups().values().stream().toList();
     }
 
     @Override
@@ -28,7 +35,10 @@ public class GroupRepository implements IGroupRepository {
 
     @Override
     public void editStudentGroup(GroupEntity group) throws RepositoryException {
-
+        if(!dataBase.getGroups().containsKey(group.getId()))
+            throw new RepositoryException("Unable to edit group: group does not exist");
+        long idGroup = group.getId();
+        dataBase.getGroups().put(idGroup, group);
     }
 
     @Override

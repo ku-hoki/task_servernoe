@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface IGroupRepository {
 
+    List<GroupEntity> getStudentGroups() throws RepositoryException;
+
     GroupEntity getStudentGroupById(long groupId) throws RepositoryException;
 
     long addStudentGroup(GroupEntity group) throws RepositoryException;
