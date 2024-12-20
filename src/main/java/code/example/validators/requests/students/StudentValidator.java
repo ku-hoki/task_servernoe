@@ -4,10 +4,12 @@ import code.example.entities.StudentEntity;
 import code.example.exceptions.ServiceException;
 import code.example.validators.requests.IValidatorService;
 
+import java.util.List;
+
 public class StudentValidator implements IValidatorService<StudentEntity> {
 
     @Override
-    public void validate(StudentEntity student) throws ServiceException {
+    public List<String> validate(StudentEntity student) throws ServiceException {
         if (student == null){
             throw new ServiceException("Student cannot be null");
         }
@@ -20,5 +22,6 @@ public class StudentValidator implements IValidatorService<StudentEntity> {
         if ( student.getIdGroup() <= 0) {
             throw new ServiceException("Student must belong to a existing group");
         }
+        return null;
     }
 }

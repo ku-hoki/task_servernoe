@@ -1,5 +1,7 @@
 package code.example.requests.students;
 
+import code.example.entities.StudentStatus;
+
 import java.util.Objects;
 
 public class EditStudentRequest {
@@ -9,9 +11,9 @@ public class EditStudentRequest {
     private String name;
     private String patronymic;
     private long idGroup;
-    private String studentStatus;
+    private StudentStatus studentStatus;
 
-    public EditStudentRequest(long idStudent, String surname, String name, String patronymic, long idGroup, String studentStatus) {
+    public EditStudentRequest(long idStudent, String surname, String name, String patronymic, long idGroup, StudentStatus studentStatus) {
         this.idStudent = idStudent;
         this.surname = surname;
         this.name = name;
@@ -60,11 +62,11 @@ public class EditStudentRequest {
         this.idGroup = idGroup;
     }
 
-    public String getStudentStatus() {
+    public StudentStatus getStudentStatus() {
         return studentStatus;
     }
 
-    public void setStudentStatus(String studentStatus) {
+    public void setStudentStatus(StudentStatus studentStatus) {
         this.studentStatus = studentStatus;
     }
 

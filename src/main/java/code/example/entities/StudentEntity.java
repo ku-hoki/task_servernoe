@@ -13,7 +13,7 @@ public class StudentEntity {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public StudentEntity(int id, String surname, String patronymic, String name, int idGroup, StudentStatus studentStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public StudentEntity(long id, String surname, String patronymic, String name, long idGroup, StudentStatus studentStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.surname = surname;
         this.name = name;
