@@ -1,19 +1,19 @@
 package code.example.responses.students;
 
-public class GetStudentResponse {
+public class StudentResponse {
     private long id;
     private String surname;
     private String name;
     private String patronymic;
-    private long groupId;
+    private String groupName;
     private String studentStatus;
 
-    public GetStudentResponse(long id, String surname, String name, String patronymic, long groupId, String studentStatus) {
+    public StudentResponse(long id, String surname, String name, String patronymic, String groupName, String studentStatus) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
-        this.groupId = groupId;
+        this.groupName = groupName;
         this.studentStatus = studentStatus;
     }
 
@@ -49,13 +49,10 @@ public class GetStudentResponse {
         this.patronymic = patronymic;
     }
 
-    public long getGroupId() {
-        return groupId;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroupId(long groupId) {
-        this.groupId = groupId;
-    }
 
     public String getStudentStatus() {
         return studentStatus;

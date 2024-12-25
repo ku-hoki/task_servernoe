@@ -4,25 +4,26 @@ import code.example.entities.StudentEntity;
 import code.example.exceptions.RepositoryException;
 import code.example.exceptions.ServiceException;
 import code.example.repository.students.StudentRepository;
+import code.example.responses.students.StudentResponse;
 import code.example.validators.requests.IValidatorService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StudentService implements IStudentService{
 
     private final StudentRepository studentRepository;
 
-    private final IValidatorService<StudentEntity> studentValidator;
 
-    public StudentService(StudentRepository studentRepository, IValidatorService<StudentEntity> studentValidator) {
+    public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
-        this.studentValidator = studentValidator;
     }
 
     @Override
-    public List<StudentEntity> getStudentByGroupId(long idGroup) throws ServiceException, RepositoryException {
+    public List<StudentResponse> getStudentByGroupId(long idGroup) throws ServiceException{
         try {
-            return studentRepository.getStudentsByGroup(idGroup);
+            List<StudentEntity> students = studentRepository.getStudentsByGroup(idGroup);
+            return students.stream().map(this::convertToResponse).collect(Collectors.toList());
         }catch (RepositoryException e){
             throw new ServiceException("Failed to retrieve students by group id:" + idGroup, e);
         }
@@ -38,8 +39,7 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public long addStudent(StudentEntity student) throws ServiceException {
-        studentValidator.validate(student);
+    public long addStudent(StudentEntity student) throws ServiceException {//проверить, что существует группа с заданным айди. Через репозиторий группы вернуть айди
         try {
             return studentRepository.addStudent(student);
 
@@ -49,8 +49,7 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public void editStudent(StudentEntity student) throws ServiceException {
-        studentValidator.validate(student);
+    public void editStudent(StudentEntity student) throws ServiceException {// проверка на группу
         try {
             studentRepository.editStudent(student);
         } catch (RepositoryException e) {

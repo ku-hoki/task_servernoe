@@ -12,7 +12,6 @@ import java.util.List;
 public class GroupService implements IGroupService{
 
     private final IGroupRepository groupRepository;
-    private final IValidatorService<GroupEntity> groupValidator;
 
     public GroupService(IGroupRepository groupRepository, IValidatorService<GroupEntity> groupValidator) {
         this.groupRepository = groupRepository;
@@ -30,9 +29,6 @@ public class GroupService implements IGroupService{
 
     @Override
     public GroupEntity getStudentGroupById(long groupId) throws ServiceException {
-        if (groupId <= 0){
-            throw new ServiceException("Invalid group Id: " + groupId);
-        }
         try{
             GroupEntity group = groupRepository.getStudentGroupById(groupId);
             if (group == null){
@@ -46,7 +42,6 @@ public class GroupService implements IGroupService{
 
     @Override
     public long addStudentGroup(GroupEntity group) throws ServiceException {
-        groupValidator.validate(group);
         try{
             return groupRepository.addStudentGroup(group);
         } catch (RepositoryException e) {
@@ -56,10 +51,7 @@ public class GroupService implements IGroupService{
 
     @Override
     public void editStudentGroup(GroupEntity group) throws ServiceException {
-        groupValidator.validate(group);
-        if (group.getId() <= 0){
-            throw new ServiceException("The ID of the group cannot be negative");
-        }
+
         try {
             groupRepository.editStudentGroup(group);
         } catch (RepositoryException e) {
@@ -69,9 +61,6 @@ public class GroupService implements IGroupService{
 
     @Override
     public void deleteStudentGroup(long groupId) throws ServiceException {
-        if (groupId <= 0){
-            throw new ServiceException("Invalid group ID: " + groupId);
-        }
         try {
             groupRepository.deleteStudentGroup(groupId);
         } catch (RepositoryException e) {

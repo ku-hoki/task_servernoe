@@ -3,7 +3,6 @@ package code.example.repository.students;
 import code.example.entities.StudentEntity;
 import code.example.exceptions.RepositoryException;
 import code.example.repository.DataBase;
-import code.example.repository.students.IStudentRepository;
 
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class StudentRepository implements IStudentRepository {
 
     @Override
     public List<StudentEntity> getStudentsByGroup(long groupId) throws RepositoryException{
-        return dataBase.getStudents().values().stream().filter(studentEntity -> studentEntity.getIdGroup() == groupId).toList();
+        return dataBase.getStudents().values().stream().filter(studentResponse -> studentResponse.getIdGroup() == groupId).toList();
     }
 
     @Override

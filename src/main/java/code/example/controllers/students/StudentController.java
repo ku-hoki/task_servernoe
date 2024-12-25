@@ -33,7 +33,7 @@ public class StudentController {
         this.addStudentValidator = addStudentValidator;
         this.editStudentValidator = editStudentValidator;
     }
-
+    //подача StudentResponse
     public ResponseEntity<List<StudentEntity>> getStudentByGroupId(GetStudentsByGroupRequest request) throws ServiceException {
 
         List<String> errors = getStudentByGroupValidator.validate(request);
@@ -97,7 +97,7 @@ public class StudentController {
 
         if (errors.isEmpty()){
 
-            StudentEntity existingStudent = studentService.getStudentById(request.getIdStudent());
+            StudentEntity existingStudent = studentService.getStudentById(request.getIdStudent());//
             if (existingStudent == null){
                 return ResponseEntity.error(404, "Student not found with ID: " + request.getIdStudent());
             }
