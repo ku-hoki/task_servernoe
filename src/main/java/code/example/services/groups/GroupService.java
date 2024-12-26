@@ -4,37 +4,40 @@ import code.example.entities.GroupEntity;
 import code.example.exceptions.RepositoryException;
 import code.example.exceptions.ServiceException;
 import code.example.repository.groups.IGroupRepository;
+import code.example.responses.groups.GroupResponse;
 import code.example.validators.requests.IValidatorService;
 
 import javax.xml.validation.Validator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GroupService implements IGroupService{
 
     private final IGroupRepository groupRepository;
 
-    public GroupService(IGroupRepository groupRepository, IValidatorService<GroupEntity> groupValidator) {
+    private GroupResponse convertToResponse(GroupEntity groupEntity){
+        return GroupResponse.fromEntity(groupEntity);
+    }
+
+    public GroupService(IGroupRepository groupRepository) {
         this.groupRepository = groupRepository;
-        this.groupValidator = groupValidator;
     }
 
     @Override
-    public List<GroupEntity> getStudentGroups() throws ServiceException {
+    public List<GroupResponse> getStudentGroups() throws ServiceException {
         try{
-            return groupRepository.getStudentGroups();
+            List<GroupEntity> groups = groupRepository.getStudentGroups();
+            return groups.stream().map(this::convertToResponse).collect(Collectors.toList());
         } catch (RepositoryException e) {
             throw new ServiceException("Failed to get groups" + e.getMessage(), e);
         }
     }
 
     @Override
-    public GroupEntity getStudentGroupById(long groupId) throws ServiceException {
+    public GroupResponse getStudentGroupById(long groupId) throws ServiceException {
         try{
             GroupEntity group = groupRepository.getStudentGroupById(groupId);
-            if (group == null){
-                throw new ServiceException("Group not found by ID: "+ groupId);
-            }
-            return group;
+            return convertToResponse(group);
         } catch (RepositoryException e) {
             throw new ServiceException("Failed to get group by ID: " + e.getMessage(), e);
         }

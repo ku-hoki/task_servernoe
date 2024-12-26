@@ -1,5 +1,6 @@
 package code.example.requests.students;
 
+import code.example.entities.StudentEntity;
 import code.example.entities.StudentStatus;
 
 import java.util.Objects;

@@ -14,6 +14,9 @@ public class StudentService implements IStudentService{
 
     private final StudentRepository studentRepository;
 
+    private StudentResponse convertToResponse(StudentEntity studentEntity){
+        return StudentResponse.fromEntity(studentEntity);
+    }
 
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
@@ -30,9 +33,10 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public StudentEntity getStudentById(long idStudent) throws ServiceException {
+    public StudentResponse getStudentById(long idStudent) throws ServiceException {
         try {
-            return studentRepository.getStudentById(idStudent);
+            StudentEntity student = studentRepository.getStudentById(idStudent);
+            return convertToResponse(student);
         } catch (RepositoryException e) {
             throw new ServiceException("Student not found with id: " + idStudent, e);
         }

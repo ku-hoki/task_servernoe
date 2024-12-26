@@ -1,20 +1,29 @@
 package code.example.responses.students;
 
+import code.example.entities.StudentEntity;
+import code.example.entities.StudentStatus;
+
+import java.time.LocalDateTime;
+
 public class StudentResponse {
     private long id;
     private String surname;
     private String name;
     private String patronymic;
-    private String groupName;
-    private String studentStatus;
+    private long groupId;
+    private StudentStatus studentStatus;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public StudentResponse(long id, String surname, String name, String patronymic, String groupName, String studentStatus) {
+    public StudentResponse(long id, String surname, String name, String patronymic, long groupId, StudentStatus studentStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
-        this.groupName = groupName;
+        this.groupId = groupId;
         this.studentStatus = studentStatus;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public long getId() {
@@ -49,16 +58,33 @@ public class StudentResponse {
         this.patronymic = patronymic;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public long getGroupId() {
+        return groupId;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-    public String getStudentStatus() {
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public StudentStatus getStudentStatus() {
         return studentStatus;
     }
 
-    public void setStudentStatus(String studentStatus) {
-        this.studentStatus = studentStatus;
+
+    public static StudentResponse fromEntity(StudentEntity entity){
+        return new StudentResponse(
+                entity.getId(),
+                entity.getSurname(),
+                entity.getName(),
+                entity.getPatronymic(),
+                entity.getIdGroup(),
+                entity.getStudentStatus(),
+                entity.getCreatedAt(),
+                entity.getUpdatedAt()
+        );
     }
 }

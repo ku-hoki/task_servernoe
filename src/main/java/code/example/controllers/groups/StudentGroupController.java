@@ -7,6 +7,7 @@ import code.example.requests.groups.DeleteStudentGroup;
 import code.example.requests.groups.EditGroupStudents;
 import code.example.requests.groups.GetStudentGroupById;
 import code.example.responses.ResponseEntity;
+import code.example.responses.groups.GroupResponse;
 import code.example.services.groups.IGroupService;
 import code.example.validators.requests.IValidatorService;
 
@@ -26,21 +27,21 @@ public class StudentGroupController {
         this.editGroupValidator = editGroupValidator;
     }
 
-    public ResponseEntity<List<GroupEntity>> getAllStudentsGroups(){
+    public ResponseEntity<List<GroupResponse>> getAllStudentsGroups(){
 
         try {
-            List<GroupEntity> groups = groupService.getStudentGroups();
+            List<GroupResponse> groups = groupService.getStudentGroups();
             return ResponseEntity.success(groups);
         }catch (Exception e){
             return ResponseEntity.error(500, "Failed to get student groups: " +e.getMessage());
         }
     }
 
-    public ResponseEntity<GroupEntity> getStudentGroupById(GetStudentGroupById request) throws ServiceException {
+    public ResponseEntity<GroupResponse> getStudentGroupById(GetStudentGroupById request) throws ServiceException {
         List<String> errors = getGroupByIdValidator.validate(request);
         if (errors.isEmpty()){
             try {
-                GroupEntity group = groupService.getStudentGroupById(request.getIdGroup());
+                GroupResponse group = groupService.getStudentGroupById(request.getIdGroup());
                 return ResponseEntity.success(group);
             } catch (Exception e){
                 return ResponseEntity.error(500, "Failed to get group by ID: " + e.getMessage());
@@ -76,7 +77,7 @@ public class StudentGroupController {
 
         if (errors.isEmpty()) {
             try {
-                GroupEntity existingGroup = groupService.getStudentGroupById(request.getIdGroup());
+                GroupResponse existingGroup = groupService.getStudentGroupById(request.getIdGroup());
                 if (existingGroup == null) {
                     return ResponseEntity.error(404, "Group not found with ID: " + request.getIdGroup());
                 }

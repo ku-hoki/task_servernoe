@@ -6,6 +6,7 @@ import code.example.exceptions.ServiceException;
 import code.example.requests.groups.GetStudentGroupById;
 import code.example.requests.students.*;
 import code.example.responses.ResponseEntity;
+import code.example.responses.students.StudentResponse;
 import code.example.services.students.IStudentService;
 import code.example.validators.requests.IValidatorService;
 import code.example.validators.requests.IdRequestValidator;
@@ -34,13 +35,13 @@ public class StudentController {
         this.editStudentValidator = editStudentValidator;
     }
     //подача StudentResponse
-    public ResponseEntity<List<StudentEntity>> getStudentByGroupId(GetStudentsByGroupRequest request) throws ServiceException {
+    public ResponseEntity<List<StudentResponse>> getStudentByGroupId(GetStudentsByGroupRequest request) throws ServiceException {
 
         List<String> errors = getStudentByGroupValidator.validate(request);
 
         if (errors.isEmpty()){
             try{
-                List<StudentEntity> students = studentService.getStudentByGroupId(request.getIdGroup());
+                List<StudentResponse> students = studentService.getStudentByGroupId(request.getIdGroup());
                 return ResponseEntity.success(students);
             } catch (Exception e) {
                 return ResponseEntity.error(500, "Сервер столкнулся с непредвиденным состоянием, которое не позволило выполнить запрос: " + e.getMessage());
@@ -50,12 +51,12 @@ public class StudentController {
         }
     }
 
-    public ResponseEntity<StudentEntity> getStudentById(GetStudentByIdRequest request) throws ServiceException {
+    public ResponseEntity<StudentResponse> getStudentById(GetStudentByIdRequest request) throws ServiceException {
         List<String> errors = getStudentByIdValidator.validate(request);
 
         if (errors.isEmpty()){
             try{
-                StudentEntity student = studentService.getStudentById(request.getId());
+                StudentResponse student = studentService.getStudentById(request.getId());
                 return ResponseEntity.success(student);
             }catch (Exception e){
                 return ResponseEntity.error(404, "Student not found" + e.getMessage());
@@ -97,11 +98,10 @@ public class StudentController {
 
         if (errors.isEmpty()){
 
-            StudentEntity existingStudent = studentService.getStudentById(request.getIdStudent());//
+            StudentResponse existingStudent = studentService.getStudentById(request.getIdStudent());//
             if (existingStudent == null){
                 return ResponseEntity.error(404, "Student not found with ID: " + request.getIdStudent());
             }
-
             try {
                 StudentEntity student =  new StudentEntity(
                         request.getIdStudent(),
