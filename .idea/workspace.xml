@@ -5,69 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b242082-15ec-453f-a165-b8def2fad482" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/controllers/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/AttendanceEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/GroupEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/LessonEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/StudentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/StudentStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/SubjectEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/entities/TeacherEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/exceptions/RepositoryException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/models/AttendanceModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/models/GroupModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/models/LessonModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/models/StudentModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/models/SubjectModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/models/TeacherModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/DataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/attendances/AttendanceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/attendances/IAttendanceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/groups/GroupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/groups/IGroupRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/lessons/ILessonRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/lessons/LessonRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/students/IStudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/students/StudentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/subjects/ISubjectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/subjects/SubjectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/teachers/ITeacherRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/repository/teachers/TeacherRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/groups/AddGroupStudents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/groups/EditGroupStudents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/idRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/lessons/AddLessonRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/lessons/EditLessonRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/lessons/GetLessonByGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/lessons/GetLessonByTeacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/students/AddStudentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/students/EditStudentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/students/GetStudentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/subjects/AddSubjectRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/subjects/EditSubjectRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/teachers/AddTeacherRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/requests/teachers/EditTeacherRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/responses/IdResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/fields/DateValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/fields/IdValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/fields/StringValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/groups/AddGroupRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/groups/EditGroupRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/lessons/AddLessonRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/lessons/EditLessonRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/students/AddStudentRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/students/EditStudentRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/subjects/AddSubjectRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/subjects/EditSubjectRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/teachers/AddTeacherRequestValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/teachers/EditTeacherRequestValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/Handler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/groups/AddStudentGroupHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/groups/DeleteStudentGroupHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/groups/EditStudentGroupHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/groups/GetStudentGroupByIdHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/groups/GetStudentGroupsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/students/AddStudentHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/students/DeleteStudentHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/students/EditStudentHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/students/GetStudentByGroupHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/handlers/students/GetStudentByIdHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/code/example/validators/requests/groups/GetGroupRequestValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/example/servers/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/example/servers/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/code/example/services/students/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/code/example/services/students/StudentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,18 +49,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/kutts/IdeaProjects/task_server(2)/src/main/java/code/example/servers/handlers/groups",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kutts\IdeaProjects\task_server(2)\src\main\java\code\example\servers\handlers\groups" />
+      <recent name="C:\Users\kutts\IdeaProjects\task_server(2)\src\main\java\code\example\servers\students" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mi\IdeaProjects\task1_servernoe\src\main\java\code\example\validators\fields" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="code.example.servers.handlers" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

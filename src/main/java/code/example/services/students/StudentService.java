@@ -3,22 +3,22 @@ package code.example.services.students;
 import code.example.entities.StudentEntity;
 import code.example.exceptions.RepositoryException;
 import code.example.exceptions.ServiceException;
+import code.example.repository.students.IStudentRepository;
 import code.example.repository.students.StudentRepository;
 import code.example.responses.students.StudentResponse;
-import code.example.validators.requests.IValidatorService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class StudentService implements IStudentService{
 
-    private final StudentRepository studentRepository;
+    private final IStudentRepository studentRepository;
 
     private StudentResponse convertToResponse(StudentEntity studentEntity){
         return StudentResponse.fromEntity(studentEntity);
     }
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(IStudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
