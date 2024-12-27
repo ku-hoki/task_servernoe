@@ -18,6 +18,18 @@ public class DataBase {
     private long lastIdSubject;
     private long lastIdLesson;
 
+    public DataBase(Map<Long, StudentEntity> students,
+                    Map<Long, GroupEntity> groups,
+                    Map<Long, TeacherEntity> teachers,
+                    Map<Long, SubjectEntity> subjects,
+                    Map<Long, LessonEntity> lessons) {
+        this.students = students;
+        this.groups = groups;
+        this.teachers = teachers;
+        this.subjects = subjects;
+        this.lessons = lessons;
+    }
+
     public long generateNextIdStudent(){
         return ++lastIdStudent;
     }

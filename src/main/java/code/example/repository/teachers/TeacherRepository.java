@@ -15,8 +15,8 @@ public class TeacherRepository implements ITeacherRepository {
     }
 
     @Override
-    public List<TeacherEntity> getAllTeachers(long teacherId) throws RepositoryException  {
-        return dataBase.getTeachers().values().stream().filter(teacherEntity -> teacherEntity.getIdTeacher() == teacherId).toList();
+    public List<TeacherEntity> getAllTeachers() throws RepositoryException  {
+        return dataBase.getTeachers().values().stream().toList();
     }
 
     @Override

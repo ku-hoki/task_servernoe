@@ -15,8 +15,8 @@ public class SubjectRepository implements ISubjectRepository {
     }
 
     @Override
-    public List<SubjectEntity> getAllSubjects(long subjectId) throws RepositoryException{
-        return dataBase.getSubjects().values().stream().filter(subjectEntity -> subjectEntity.getIdSubject() == subjectId).toList();
+    public List<SubjectEntity> getAllSubjects() throws RepositoryException{
+        return dataBase.getSubjects().values().stream().toList();
     }
 
     @Override

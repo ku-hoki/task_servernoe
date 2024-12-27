@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ISubjectRepository {
 
-    List<SubjectEntity> getAllSubjects(long subjectId) throws RepositoryException;
+    List<SubjectEntity> getAllSubjects() throws RepositoryException;
 
     SubjectEntity getSubjectById(long subjectId) throws RepositoryException;
 

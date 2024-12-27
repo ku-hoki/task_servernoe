@@ -4,7 +4,7 @@ import code.example.entities.StudentEntity;
 import code.example.exceptions.RepositoryException;
 import code.example.exceptions.ServiceException;
 import code.example.repository.students.IStudentRepository;
-import code.example.repository.students.StudentRepository;
+
 import code.example.responses.students.StudentResponse;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public long addStudent(StudentEntity student) throws ServiceException {//проверить, что существует группа с заданным айди. Через репозиторий группы вернуть айди
+    public long addStudent(StudentEntity student) throws ServiceException {
         try {
             return studentRepository.addStudent(student);
 
@@ -53,7 +53,7 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public void editStudent(StudentEntity student) throws ServiceException {// проверка на группу
+    public void editStudent(StudentEntity student) throws ServiceException {
         try {
             studentRepository.editStudent(student);
         } catch (RepositoryException e) {

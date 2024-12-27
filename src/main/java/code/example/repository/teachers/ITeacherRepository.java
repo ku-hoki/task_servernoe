@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ITeacherRepository {
 
-    List<TeacherEntity> getAllTeachers(long teacherId) throws RepositoryException;
+    List<TeacherEntity> getAllTeachers() throws RepositoryException;
 
     TeacherEntity getTeacherById(long teacherId) throws RepositoryException;
     long addTeacher(TeacherEntity teacher) throws RepositoryException;
